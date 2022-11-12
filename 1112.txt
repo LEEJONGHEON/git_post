@@ -1,0 +1,9 @@
+Spring Boot ( Legacy +)
+build : gradle
+ORM : Mybatis
+REST API : Client Side Rendering
+View Template : JSP(2012 지원종료), ThymeLeaf(spring 지원)
+운영 : AWS deploy
+
+프론트
+HTML/CSS/JS

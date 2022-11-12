@@ -1,0 +1,45 @@
+.github/workflows/~~.yml 로 git action 작성 -> 자동테스트
+repository can have multiple workflows
+
+
+1. 커밋 주소확인 
+git long --oneline : 커밋메세지 로그 한줄로 뛰우기
+1-1. 이전 버전 보고 돌아오기
+git checkout [해당커밋 주소] : 해당 버전 커밋버전으로 이동
+git checkout head~1 : 최신커밋에서 한단계 전으로 이동
+
+
+2. 에전 커밋으로 이동
+git revert [커밋 주소 ] : 해당 커밋 버전 으로 이동
+git push : 예전버전으로 이동한뒤 해당내용 push하면 과거버전으로 업로드됨
+
+
+3. 이전 작성 커밋 수정 명령어
+git commit --amend
+해당 커밋에 새롭게 누락된 파일 을 추가하거나, 기존 파일을 업데이트 할때, 기존 커밋 메세지 수정
+
+4.예전 커밋삭제
+git reset --hard [커밋주소] : 주의 과거 커밋을 삭제하므로 비권장 revert 는 커밋유지하면서 이전버전이동
+
+5.git merge 파일병합
+5-1. 새로운 브랜치 생성 -> 테스트
+5-2. 테스트 성공시 master 브랜치로 이동한다음에 git merge [해당 버그를 수정한 브랜치]
+5-3. 버그수정한 브랜치 변경사항 master에 적용됨
+
+6.초기 세팅
+git remote add origin[로컬 레포지토리 별칭 설정] [원격 레포지토리]
+git remote -v : 원격 저장소 정보 확인
+6-1초기업로드 : git push --set-upstream [로컬 레포지토리 별칭] [원격 레포지토리 브랜치이름]
+
+7.원격 레포지토리 브랜치 가져오기
+7-1) git checkout -b [원격 레포지토리 브랜치이름]
+7-2) git branch --set-upstream-to=origin/<branch> [브랜치이름] : 해당 원격 레포지토리와 로컬 레포지토리 연결
+
+8. 버전관리
+git log --oneline : 커밋 확인
+HEAD -> master : 로컬 커밋위치
+origin/master : 원격 커밋
+git commit -am : 신규파일 생성없이 기존파일 변경만일어날경우 git add 실행해주면서 git commit 실행하는 로직
+HEAD -> master와 origin/master가 동일위치에 있으면 동기화가 된것
+git fetch : 원격 레포지토리 변경사항 가져오기 -> 가져올경우 origin/master와 HEAD->master 커밋위치가 변경됨
+git pull로 해당 업데이트 가져오기
