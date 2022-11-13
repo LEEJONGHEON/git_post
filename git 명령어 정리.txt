@@ -3,7 +3,7 @@ repository can have multiple workflows
 
 
 1. 커밋 주소확인 
-git long --oneline : 커밋메세지 로그 한줄로 뛰우기
+git log --oneline : 커밋메세지 로그 한줄로 뛰우기
 1-1. 이전 버전 보고 돌아오기
 git checkout [해당커밋 주소] : 해당 버전 커밋버전으로 이동
 git checkout head~1 : 최신커밋에서 한단계 전으로 이동
@@ -20,6 +20,8 @@ git commit --amend
 
 4.예전 커밋삭제
 git reset --hard [커밋주소] : 주의 과거 커밋을 삭제하므로 비권장 revert 는 커밋유지하면서 이전버전이동
+git reset --soft [커밋주소] : 과거 커밋을 삭제하지만, 수정된 파일내용은 modified된상태로 존재
+git reset --hard [복구할 커밋주소] : 복구할 커밋주소를 알면 복구가능
 
 5.git merge 파일병합
 5-1. 새로운 브랜치 생성 -> 테스트
@@ -43,3 +45,22 @@ git commit -am : 신규파일 생성없이 기존파일 변경만일어날경우
 HEAD -> master와 origin/master가 동일위치에 있으면 동기화가 된것
 git fetch : 원격 레포지토리 변경사항 가져오기 -> 가져올경우 origin/master와 HEAD->master 커밋위치가 변경됨
 git pull로 해당 업데이트 가져오기
+
+9.태그 달기
+git tag -a [태그 ex) v.1.0] [커밋아이디]
+커밋아이디대신 태그이름으로 사용가능
+ex)git checkout v1.0
+git push [로컬 별칭] --tags
+
+10.브랜치 구조보기
+git log --all --oneline --graph
+
+11.수정 내용 취소,add 취소, 커밋취소
+11-0 수정 내용 취소
+git reset --hard : 현재 디렉토리의 수정사항 취소
+11-1 add 취소
+전체 파일 add 취소할경우 : git reset , staged된파일 -> unstaged
+일부 파일 "" : git reset [파일명]
+11-2 commit 취소
+커밋취소하고 해당 파일 staged 상태로 : git reset --soft HEAD^
+unstaged 상태로 : --mixed
