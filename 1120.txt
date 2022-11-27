@@ -1,0 +1,9 @@
+Repository : DB와 직접 CRUD할 데이터 명세
+Controller : Client에서 Request 받아서 해당 명령 처리
+
+
+
+Controller -> Service -> Repository
+Controller : request 요청 처리
+Service : 데이터 로직 처리
+Repository : DB와 연결 처리

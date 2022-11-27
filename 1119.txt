@@ -1,0 +1,9 @@
+maven repository 사이트
+spring-boot-starter 설치
+gradle(short)
+dependencies 의존성에 기입후 재빌드
+
+DI : 의존성주입
+IOC : 제어의역전
+
+static : html 파일 정적파일
