@@ -1,0 +1,48 @@
+entity : 데이터 구조
+DB 데이터 구조 변경시 entity 에 있는 데이터 명시 변경
+DB와 entity 파일 데이터 구조 1대1
+
+
+@Mapper -> xml mybatis로 전달
+repostory : interface , db 처리 logic 이름 선언
+
+
+mybatis 가져와서 연동
+resources 폴더 아래에 정의
+xml : interface 불러와서 db 로직 정의
+
+
+application.properties에 db config 정의
+
+코드 설계 구조
+repository -> service -> apicontroller 작성후
+postman으로 데이터 전송해서 테스트
+
+repository : interface db logic 설정 -> xml에서 sql 문법 작성
+
+service :
+
+XML 작성법
+insert
+delete
+update
+id : interface로 정의한 함수 이름 적기
+태그안에 SQL 문법 사용
+
+
+
+===========
+react
+back 에서 작성한 api 주소로 fetch로 요청보내고
+화면에 뿌리기
+
+
+
+===========
+DB : sql mysql workbench 사용
+unique : 중복허용 x 
+primary key : 대표키
+not null : 빈 칸 허용 x
+create table [테이블이름] (
+
+);

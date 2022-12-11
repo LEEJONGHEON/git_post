@@ -1,0 +1,4 @@
+상태관리 hook : useState
+useState를 사용안하면 Data가 변해도 데이터 변화를 감지하지못함
+const [data,setData] = useSate(init);
+상태 데이터는 set함수로 데이터 변화를 시켜줘야지 변경감지

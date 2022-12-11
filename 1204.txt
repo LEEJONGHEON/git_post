@@ -1,0 +1,2 @@
+position : relative 
+좌표 기준을 설정
