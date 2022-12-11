@@ -46,3 +46,14 @@ not null : 빈 칸 허용 x
 create table [테이블이름] (
 
 );
+
+
+
+
+----------
+프로젝트 작성순서
+1.DB 데이터구조 설계 및 선언
+2.Entity 생성 ( DB와 동일한 테이터 구조 선언)
+3.Repository Interface 선언
+4.Repository xml에 실제 sql 문법 작성
+5. 
