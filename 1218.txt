@@ -1,0 +1,6 @@
+해야될것
+0.테이블생성
+1.DataEntity -> DB 테이블에 넣기
+2.Repository
+3.Service
+4.Controller 생성

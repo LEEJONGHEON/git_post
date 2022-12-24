@@ -1,0 +1,51 @@
+인증 순서
+1.로그인 -> token 값 가져와서
+2.CRUD 요청시 header에 token 값 넣어서 전달
+토큰없으면 403 에러
+3.
+
+DB 수정 -> repository 수정 -> service 수정 ->ApiController 수정
+
+xml 파일 : db query 수정
+
+
+토큰설정
+BearerToken에 토큰값 전달
+JwtAuthFilter/doFilterInternal에서 토큰 가져오고 토큰검사
+
+토큰에 userId를 등록해서
+각 기능마다 userId를 검사해서 해당 userId에 해당하는 값만 가져오도록 설정
+
+
+
+
+설계구조
+1.회원가입 
+2.로그인시 -> 해당 유저의 토큰 발급
+3.CRUD 기능 사용시 해당 유저의 발급된토큰값과 header로 전달한 토큰값 유효성검사
+4.유효성 실패시 403 error, 성공시 성공
+5.token으로 해당 고객이 생성한 데이터만 반환
+
+
+DB에 개인정보는 encode해서 저장 ex)패스워드
+
+
+
+
+
+설계 순서
+backend
+1. DB 테이블 생성
+2. entity로 DB 테이블과 동일하게 데이터 구조정의
+3. repository interface에서 DB에 어떤작업을할것인지 명시
+4. DB 설정: xml 파일 : 실질적 sql 문법 작성
+5. Service : repository에서 불러와서 로직진행
+6. API controller : request요청받아서 로직진행
+7. POSTMAN으로 테스트
+
+1. 회원정보
+일반 회원 (주소입력 x)
+주소입력회원 : default로 주소기반 서비스제공
+
+2. 로그인 회원 저장한 위치 마킹
+position 주소정보

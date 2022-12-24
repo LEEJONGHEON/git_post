@@ -1,0 +1,57 @@
+Srping resultType 제대로지정안하면 오류뜸 
+========================================
+키페어 ppk : 윈도우
+pem : 리눅스
+
+키페어 
+
+SSH : 서버접속하려는 사람 -> IP 관리자만 한정
+HTTP : 서버 요청 -> 모든 사람 허용 IPv4 IPv6 둘다허용
+HTTPS도 동일하게
+
+고정 IP : 탄력적 IP 주소 할당
+탄려적 IP 주소 생성하고 인스턴스 연결
+탄력적 IP 인스턴스 해제시 같이 삭제해야
+putty로 접속
+
+========================================
+DB : RDS
+스토리지 자동 조정 활성화 : 자동 오토 스케일아웃 설정 
+
+파라미터 그룹
+
+collation 설정 utf8mb4_general_ci설정
+
+DB 설정에서 데이터베이서 옵션을 파라미터 그룹으로 변경
+DB 재부팅
+
+포트 개방
+1.로컬 DB접속
+2.EC2에서 DB접속
+인바운드 규칙 , 내 IP와 EC2보안규칙 가져와서 설정
+
+Backend DB 연결 설정 localhost 부분을 RDS 서버주소로 변경
+
+======
+build 실행
+build/libs/ 에 demo-snapshot.jar 배포파일
+application.properties내용은 서버내부에서수정
+
+=====
+linux에서 자바설치
+sudo yum install git
+linux에서 git 에올린 파일 다운로드
+application 설정 내용 바꾸고
+gradlew 실행(권한 chmod 764로 변경후) ./gradlew clean build 클린하고 빌드실행
+
+java -jar 스냅샷 이름 : 자바파일 실행 -> 톰캣실행되면서 서버실행
+
+파일변경 -> git push -> aws 에서 git pull -> 재빌드 -> 재 실행
+
+백그라운드 실행
+
+nohup javar -jar 스냅샷 이름 & : putty 종료후에도 백그라운드 실행
+
+백그라운드 테스트
+ps -ef | grep java
+
